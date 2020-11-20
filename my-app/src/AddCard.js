@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 
-const AddList = ({ addList }) => {
+const AddCard = ({ addCard }) => {
 	const [showInput, setShowInput] = useState(false);
 	const [value, setValue] = useState('');
 	return (
-		<div
-			style={{ padding: 8, margin: 8, width: 153, border: '1px solid black' }}
-		>
+		<div style={{ marginTop: 8, width: 153 }}>
 			{showInput ? (
 				<>
 					<input value={value} onChange={(e) => setValue(e.target.value)} />
@@ -16,25 +14,26 @@ const AddList = ({ addList }) => {
 						onClick={() => {
 							// return;
 							if (value) {
-								addList(value);
+								addCard(value);
 							}
 							setValue('');
 						}}
 					>
-						Add List
+						Add Card
 					</button>
+					{/* <button>Add Card</button> */}
 					<span> </span>
 					<button onClick={() => setShowInput(false)}>X</button>
 				</>
 			) : (
-				<button onClick={() => setShowInput(true)}>＋ Add a list</button>
+				<button onClick={() => setShowInput(true)}>＋ Add a card</button>
 			)}
 		</div>
 	);
 };
 
-AddList.propTypes = {};
+AddCard.propTypes = {};
 
-AddList.defaultProps = {};
+AddCard.defaultProps = {};
 
-export default React.memo(AddList);
+export default React.memo(AddCard);
